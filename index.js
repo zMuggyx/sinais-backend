@@ -9,6 +9,16 @@ const BOT_TOKEN = process.env.BOT_TOKEN
 const bot = new Telegraf(BOT_TOKEN)
 const app = express()
 
+app.get('/', (req, res) => {
+  res.status(200).json({
+    status: 'online',
+    service: 'SignalNinja API',
+    websocket: 'wss://api.tr4derninja.com',
+    timestamp: new Date().toISOString()
+  })
+})
+
+
 app.use(cors())
 app.use(express.json())
 
